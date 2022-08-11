@@ -5,7 +5,6 @@ import java.util.List;
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.entities.Department;
-import model.entities.Seller;
 
 public class Program2 {
 
@@ -28,6 +27,23 @@ public class Program2 {
 		for (Department dep : list) {
 			System.out.println(dep);
 		}
+		
+		System.out.println("\n==== TEST 3: department insert ====");
+		
+		Department newDepartment = new Department(null, "Coffe");
+		departmentDao.insert(newDepartment);
+		System.out.println("Inserted! New id = " + newDepartment.getId());
+		
+		
+		System.out.println("\n==== TEST 4: department update ====");
+		
+		department = departmentDao.findById(1);
+		department.setName("Food");
+		departmentDao.update(department);
+		System.out.println("Update completed");
+		
+		
+		System.out.println("\n==== TEST 5: department delete ====");
 		
 	}
 
